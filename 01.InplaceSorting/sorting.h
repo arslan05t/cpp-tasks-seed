@@ -20,7 +20,7 @@ void bubble_sort(Iterator begin, Iterator end)
         // Проходим до предпоследнего элемента
         while (std::next(j) != end)
         {
-            if (*j > *std::next(j))
+            if (*std::next(j) < *j)
             {
                 std::iter_swap(j, std::next(j));
             }
