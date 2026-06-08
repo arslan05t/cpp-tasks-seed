@@ -71,14 +71,14 @@ std::vector<uint8_t> base85::decode(std::vector<uint8_t> const &b85str)
             }
             else
             {
-                block = block * 85;
+                block = block * 85 + 84;
             }
         }
         uint8_t bytes[4];
         bytes[0] = (block >> 24) & 0xFF;
         bytes[1] = (block >> 16) & 0xFF;
-        bytes[2] = (block >> 8)  & 0xFF;
-        bytes[3] =  block        & 0xFF;
+        bytes[2] = (block >> 8) & 0xFF;
+        bytes[3] = block & 0xFF;
         int bytes_to_write = chars_in_block - 1;
         for (int k = 0; k < bytes_to_write; ++k)
         {
